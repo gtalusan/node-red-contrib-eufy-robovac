@@ -1,0 +1,27 @@
+{
+  "name": "@george.talusan/red-contrib-eufy-robovac",
+  "version": "0.0.1",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gtalusan/node-red-contrib-eufy-robovac.git"
+  },
+  "keywords": [
+    "node-red",
+    "eufy",
+    "robovac"
+  ],
+  "author": "George Talusan <george.talusan@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gtalusan/node-red-contrib-eufy-robovac/issues"
+  },
+  "homepage": "https://github.com/gtalusan/node-red-contrib-eufy-robovac#readme",
+  "description": "",
+  "dependencies": {
+    "@george.talusan/eufy-robovac-js": "^0.0.6"
+  }
+}
