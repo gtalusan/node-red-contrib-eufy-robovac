@@ -1,57 +1,57 @@
 <script type='text/javascript'>
-	RED.nodes.registerType('in',
-		{
-			category: 'eufy robovac',
-			color: '#41efdc',
-			defaults: {
-				config: {
-					type: 'eufy-robovac-config',
-					required: true
-				},
-				name: {
-					value: ''
-				},
-				command: {
-					value: 'clean'
-				}
+  RED.nodes.registerType('in',
+    {
+      category: 'eufy robovac',
+      color: '#41efdc',
+      defaults: {
+        config: {
+          type: 'eufy-robovac-config',
+          required: true
+        },
+        name: {
+          value: ''
+        },
+        command: {
+          value: 'clean'
+        }
       },
       inputs: 1,
       outputs: 0,
       icon: 'eufy-logo.svg',
-			label: function () {
-      	return this.name || 'in';
+      label: function () {
+        return this.name || 'in';
       },
-			oneditprepare: () => {
-				$('#node-input-command').typedInput({
-					types: [
-						{
-							value: 'event',
-							options: [
-								{ value: 'clean', label: 'Clean' },
-								{ value: 'goHome', label: 'Go Home' },
-								{ value: 'locate', label: 'Locate' },
-							]
-						}
-					]
-				});
-			}
+      oneditprepare: () => {
+        $('#node-input-command').typedInput({
+          types: [
+            {
+              value: 'event',
+              options: [
+                { value: 'clean', label: 'Clean' },
+                { value: 'goHome', label: 'Go Home' },
+                { value: 'locate', label: 'Locate' },
+              ]
+            }
+          ]
+        });
+      }
     }
-	);
+  );
 </script>
 
 <script type='text/html' data-template-name='in'>
-	<div class='form-row'>
-		<label for='node-input-name'><i class='fa fa-tag'></i> Name</label>
-		<input type='text' id='node-input-name' placeholder='Name'>
-	</div>
-	<div class='form-row'>
-		<label for='node-input-config'><i class='fa fa-bookmark'></i> Config</label>
-		<input type='text' id='node-input-config'>
-	</div>
-	<div class='form-row'>
-		<label for='node-input-command'><i class='fa fa-bookmark'></i> Command</label>
-		<input type='text' id='node-input-command'>
-	</div>
+  <div class='form-row'>
+    <label for='node-input-name'><i class='fa fa-tag'></i> Name</label>
+    <input type='text' id='node-input-name' placeholder='Name'>
+  </div>
+  <div class='form-row'>
+    <label for='node-input-config'><i class='fa fa-bookmark'></i> Config</label>
+    <input type='text' id='node-input-config'>
+  </div>
+  <div class='form-row'>
+    <label for='node-input-command'><i class='fa fa-bookmark'></i> Command</label>
+    <input type='text' id='node-input-command'>
+  </div>
 
-	<div class='form-tips'><b>Tip:</b> This is here to help.</div>
+  <div class='form-tips'><b>Tip:</b> This is here to help.</div>
 </script>
