@@ -1,6 +1,6 @@
-const { RoboVac } = require('@george.talusan/eufy-robovac-js');
-
 module.exports = (RED) => {
+  const { RoboVac } = require('@george.talusan/eufy-robovac-js');
+
   class EufyRobovacConfigNode {
     constructor (config) {
       RED.nodes.createNode(this, config);
