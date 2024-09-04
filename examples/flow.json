@@ -1,0 +1,149 @@
+[
+    {
+        "id": "7a3b9d1ce1444f7f",
+        "type": "debug",
+        "z": "e26ab9304be2ede0",
+        "name": "debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 590,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "1c26d679f772fd64",
+        "type": "out",
+        "z": "e26ab9304be2ede0",
+        "config": "8166c4736e9e6afe",
+        "name": "",
+        "output": "event,alert",
+        "x": 380,
+        "y": 460,
+        "wires": [
+            [
+                "7a3b9d1ce1444f7f"
+            ]
+        ]
+    },
+    {
+        "id": "f9437edc1f99e248",
+        "type": "inject",
+        "z": "e26ab9304be2ede0",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "x": 390,
+        "y": 560,
+        "wires": [
+            [
+                "565479c120192fd9"
+            ]
+        ]
+    },
+    {
+        "id": "565479c120192fd9",
+        "type": "in",
+        "z": "e26ab9304be2ede0",
+        "config": "8166c4736e9e6afe",
+        "name": "locate",
+        "command": "locate",
+        "x": 590,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "466dc98dd535f8a4",
+        "type": "inject",
+        "z": "e26ab9304be2ede0",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "x": 390,
+        "y": 620,
+        "wires": [
+            [
+                "3dd2681a9e8ef85e"
+            ]
+        ]
+    },
+    {
+        "id": "3dd2681a9e8ef85e",
+        "type": "in",
+        "z": "e26ab9304be2ede0",
+        "config": "8166c4736e9e6afe",
+        "name": "clean",
+        "command": "clean",
+        "x": 590,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "b88dcb77ebc86966",
+        "type": "in",
+        "z": "e26ab9304be2ede0",
+        "config": "8166c4736e9e6afe",
+        "name": "go home",
+        "command": "goHome",
+        "x": 600,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "b391bf02d3a420a7",
+        "type": "inject",
+        "z": "e26ab9304be2ede0",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "x": 390,
+        "y": 680,
+        "wires": [
+            [
+                "b88dcb77ebc86966"
+            ]
+        ]
+    },
+    {
+        "id": "8166c4736e9e6afe",
+        "type": "eufy-robovac-config",
+        "ip": "10.0.1.69",
+        "deviceId": "[YOUR DEVICE ID]",
+        "localKey": "[YOUR LOCAL KEY]"
+    }
+]

@@ -1,5 +1,5 @@
 {
-  "name": "@george.talusan/red-contrib-eufy-robovac",
+  "name": "@george.talusan/node-red-contrib-eufy-robovac",
   "version": "0.0.1",
   "main": "index.js",
   "scripts": {
@@ -23,5 +23,12 @@
   "description": "",
   "dependencies": {
     "@george.talusan/eufy-robovac-js": "^0.0.6"
+  },
+  "node-red" : {
+    "nodes": {
+      "eufy-robovac-config": "src/eufy-robovac-config.js",
+      "eufy-robovac-input": "src/eufy-robovac-input.js",
+      "eufy-robovac-output": "src/eufy-robovac-output.js"
+    }
   }
 }

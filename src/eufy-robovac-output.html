@@ -1,0 +1,57 @@
+<script type='text/javascript'>
+	RED.nodes.registerType('out',
+		{
+			category: 'eufy robovac',
+			color: '#a6bbcf',
+			defaults: {
+				config: {
+					type: 'eufy-robovac-config',
+					required: true
+				},
+				name: {
+					value: ''
+				},
+				output: {
+					value: 'event'
+				}
+      },
+      inputs: 0,
+      outputs: 1,
+      icon: 'eufy-logo.svg',
+			label: function () {
+      	return this.name || 'out';
+      },
+			oneditprepare: () => {
+				$('#node-input-output').typedInput({
+					types: [
+						{
+            	value: 'event',
+            	multiple: 'true',
+            	options: [
+             		{ value: 'event', label: 'events' },
+               	{ value: 'alert', label: 'alerts' },
+               	{ value: 'error', label: 'errors' },
+							]
+        		}
+					]
+				});
+			}
+    }
+	);
+</script>
+
+<script type='text/html' data-template-name='out'>
+	<div class='form-row'>
+		<label for='node-input-name'><i class='fa fa-tag'></i> Name</label>
+		<input type='text' id='node-input-name' placeholder='Name'>
+	</div>
+	<div class='form-row'>
+		<label for='node-input-config'><i class='fa fa-bookmark'></i> Config</label>
+		<input type='text' id='node-input-config'>
+	</div>
+	<div class='form-row'>
+		<label for='node-input-output'><i class='fa fa-bookmark'></i> Output</label>
+		<input type='text' id='node-input-output'>
+	</div>
+	<div class='form-tips'><b>Tip:</b> This is here to help.</div>
+</script>
