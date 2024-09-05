@@ -33,7 +33,7 @@ module.exports = (RED) => {
         cleanRooms: async (payload) => {
           await robovac.pause();
           await sleep(3000);
-          await robovac.cleanRooms(payload);
+          await robovac.cleanRooms(payload.split(',').map(Number));
         }
       };
 

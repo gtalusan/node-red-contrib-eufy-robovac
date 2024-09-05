@@ -23,7 +23,7 @@ Drag an `in` or `out` node to your flow.  Choose or create a configuration.
 |command|payload|note|
 |-------|-------|----|
 |clean  |N/A    |    |
-|cleanRooms|[1,3]|an array of numbers, 0-based|
+|cleanRooms|1,3|list of comma-separated numbers|
 |goHome |true/false|boolean|
 |locate |true/false|boolean|
 
