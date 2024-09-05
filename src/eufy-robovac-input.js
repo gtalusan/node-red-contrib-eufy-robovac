@@ -16,35 +16,34 @@ module.exports = (RED) => {
       const robovac = configNode.robovac;
       const ACTIONS = {
         goHome: async (payload) => {
-          try {
-            await robovac.pause();
-            await sleep(3000);
-            await robovac.goHome(payload);
-          } catch (error) {
-            node.error(error);
-          }
+          await robovac.pause();
+          await sleep(3000);
+          await robovac.goHome(payload);
         },
         locate: async (payload) => {
-          try {
-            await robovac.pause();
-            await sleep(3000);
-            await robovac.locate(payload);
-          } catch (error) {
-            node.error(error);
-          }
+          await robovac.pause();
+          await sleep(3000);
+          await robovac.locate(payload);
         },
         clean: async () => {
-          try {
-            await robovac.clean();
-          } catch (error) {
-            node.error(error);
-          }
+          await robovac.pause();
+          await sleep(3000);
+          await robovac.clean();
+        },
+        cleanRooms: async (payload) => {
+          await robovac.pause();
+          await sleep(3000);
+          await robovac.cleanRooms(payload);
         }
       };
 
       node.on('input', async (msg) => {
         const command = config.command;
-        await ACTIONS[command](msg.payload);
+        try {
+          await ACTIONS[command](msg.payload);
+        } catch (error) {
+          node.error(error);
+        }
       });
     }
   }

@@ -1,6 +1,6 @@
-module.exports = (RED) => {
-  const { RoboVac } = require('@george.talusan/eufy-robovac-js');
+const { RoboVac } = require('@george.talusan/eufy-robovac-js');
 
+module.exports = (RED) => {
   class EufyRobovacConfigNode {
     constructor (config) {
       RED.nodes.createNode(this, config);
@@ -11,8 +11,6 @@ module.exports = (RED) => {
       const { ip, deviceId, localKey } = config;
       this.robovac = new RoboVac({ ip, deviceId, localKey });
       this.robovac.on('tuya.connected', async () => {
-        console.warn('connected');
-
         this.connected = true;
       });
 
@@ -21,8 +19,6 @@ module.exports = (RED) => {
         if (!this.reconnect) {
           return;
         }
-
-        console.warn('reconnecting..');
 
         const id = setInterval(async () => {
           try {

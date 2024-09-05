@@ -25,7 +25,17 @@ module.exports = (RED) => {
         });
       });
 
-      node.status({ fill: 'green', shape: 'dot', text: 'Connected' });
+      const updateStatus = () => {
+        if (robovac.connected) {
+          node.status({ fill: 'green', shape: 'dot', text: 'Connected' });
+        } else {
+          node.status({ fill: 'red', shape: 'dot', text: 'Disconnected' });
+        }
+      };
+      robovac.on('tuya.connected', updateStatus);
+      robovac.on('tuya.disconnected', updateStatus);
+
+      node.status({ fill: 'yellow', shape: 'dot', text: 'Connecting...' });
     }
   }
 

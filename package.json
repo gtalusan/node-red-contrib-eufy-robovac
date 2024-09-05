@@ -1,6 +1,6 @@
 {
   "name": "@george.talusan/node-red-contrib-eufy-robovac",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -22,7 +22,7 @@
   "homepage": "https://github.com/gtalusan/node-red-contrib-eufy-robovac#readme",
   "description": "",
   "dependencies": {
-    "@george.talusan/eufy-robovac-js": "^0.0.7"
+    "@george.talusan/eufy-robovac-js": "^0.0.8"
   },
   "node-red" : {
     "nodes": {
