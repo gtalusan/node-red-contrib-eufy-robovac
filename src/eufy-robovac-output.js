@@ -36,6 +36,7 @@ module.exports = (RED) => {
       robovac.on('tuya.disconnected', updateStatus);
 
       node.status({ fill: 'yellow', shape: 'dot', text: 'Connecting...' });
+      updateStatus();
     }
   }
 
