@@ -1,6 +1,6 @@
 {
   "name": "@george.talusan/node-red-contrib-eufy-robovac",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -27,8 +27,8 @@
   "node-red" : {
     "nodes": {
       "eufy-robovac-config": "src/eufy-robovac-config.js",
-      "eufy-robovac-input": "src/eufy-robovac-input.js",
-      "eufy-robovac-output": "src/eufy-robovac-output.js"
+      "eufy-robovac-command": "src/eufy-robovac-command.js",
+      "eufy-robovac-event": "src/eufy-robovac-event.js"
     }
   }
 }

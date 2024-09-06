@@ -1,5 +1,5 @@
 module.exports = (RED) => {
-  class EufyRobovacOutputNode {
+  class EufyRobovacEventNode {
     constructor (config) {
       RED.nodes.createNode(this, config);
 
@@ -40,7 +40,7 @@ module.exports = (RED) => {
     }
   }
 
-  RED.nodes.registerType('out', EufyRobovacOutputNode,
+  RED.nodes.registerType('event', EufyRobovacEventNode,
     {
       defaults: {
         config: {

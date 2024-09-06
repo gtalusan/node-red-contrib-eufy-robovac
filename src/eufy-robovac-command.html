@@ -1,5 +1,5 @@
 <script type='text/javascript'>
-  RED.nodes.registerType('in',
+  RED.nodes.registerType('command',
     {
       category: 'eufy robovac',
       color: '#41efdc',
@@ -19,7 +19,7 @@
       outputs: 0,
       icon: 'eufy-logo.svg',
       label: function () {
-        return this.name || 'in';
+        return this.name || 'command';
       },
       oneditprepare: () => {
         $('#node-input-command').typedInput({
@@ -40,7 +40,7 @@
   );
 </script>
 
-<script type='text/html' data-template-name='in'>
+<script type='text/html' data-template-name='command'>
   <div class='form-row'>
     <label for='node-input-name'><i class='fa fa-tag'></i> Name</label>
     <input type='text' id='node-input-name' placeholder='Name'>

@@ -1,7 +1,7 @@
 const sleep = (ms) => new Promise(r => setTimeout(r, ms));
 
 module.exports = (RED) => {
-  class EufyRobovacInputNode {
+  class EufyRobovacCommandNode {
     constructor (config) {
       RED.nodes.createNode(this, config);
 
@@ -61,7 +61,7 @@ module.exports = (RED) => {
     }
   }
 
-  RED.nodes.registerType('in', EufyRobovacInputNode,
+  RED.nodes.registerType('command', EufyRobovacCommandNode,
     {
       defaults: {
         config: {
