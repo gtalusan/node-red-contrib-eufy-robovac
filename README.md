@@ -31,4 +31,8 @@ You may have multiple `in` and `out` nodes.  If they share the same configuratio
 
 ## Examples
 
-The `examples` sub-directory contains an example flow.
+The `examples` sub-directory contains a flow with examples of how to:
+
+1. clean selected rooms
+2. auto clean at a specific time
+3. chart battery health over time using @flowfuse/node-red-dashboard.

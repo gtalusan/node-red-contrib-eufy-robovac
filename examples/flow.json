@@ -1,40 +1,33 @@
 [
     {
-        "id": "7a3b9d1ce1444f7f",
+        "id": "eb6ebf0d1efdab1b",
+        "type": "tab",
+        "label": "vacuum",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "c8c481c031d288d0",
         "type": "debug",
-        "z": "e26ab9304be2ede0",
-        "name": "debug",
+        "z": "eb6ebf0d1efdab1b",
+        "name": "robovac",
         "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
+        "complete": "true",
+        "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 590,
-        "y": 460,
+        "x": 320,
+        "y": 440,
         "wires": []
     },
     {
-        "id": "1c26d679f772fd64",
-        "type": "out",
-        "z": "e26ab9304be2ede0",
-        "config": "8166c4736e9e6afe",
-        "name": "",
-        "output": "event,alert",
-        "x": 380,
-        "y": 460,
-        "wires": [
-            [
-                "7a3b9d1ce1444f7f"
-            ]
-        ]
-    },
-    {
-        "id": "f9437edc1f99e248",
+        "id": "28d22a5c6cc08c8f",
         "type": "inject",
-        "z": "e26ab9304be2ede0",
+        "z": "eb6ebf0d1efdab1b",
         "name": "",
         "props": [
             {
@@ -46,104 +39,443 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "true",
-        "payloadType": "bool",
-        "x": 390,
-        "y": 560,
+        "payload": "0,2",
+        "payloadType": "str",
+        "x": 190,
+        "y": 260,
         "wires": [
             [
-                "565479c120192fd9"
+                "9e1287cd0306965b"
             ]
         ]
     },
     {
-        "id": "565479c120192fd9",
-        "type": "in",
-        "z": "e26ab9304be2ede0",
-        "config": "8166c4736e9e6afe",
-        "name": "locate",
-        "command": "locate",
-        "x": 590,
-        "y": 560,
-        "wires": []
-    },
-    {
-        "id": "466dc98dd535f8a4",
+        "id": "fc6345e71d4a5b39",
         "type": "inject",
-        "z": "e26ab9304be2ede0",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            }
-        ],
+        "z": "eb6ebf0d1efdab1b",
+        "name": "11:00am",
+        "props": [],
         "repeat": "",
-        "crontab": "",
+        "crontab": "00 11 * * *",
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "true",
-        "payloadType": "bool",
-        "x": 390,
-        "y": 620,
+        "x": 200,
+        "y": 320,
         "wires": [
             [
-                "3dd2681a9e8ef85e"
+                "fb9c693d88bcbb9e"
             ]
         ]
     },
     {
-        "id": "3dd2681a9e8ef85e",
-        "type": "in",
-        "z": "e26ab9304be2ede0",
-        "config": "8166c4736e9e6afe",
+        "id": "b69e25e4903751b9",
+        "type": "ui-gauge",
+        "z": "eb6ebf0d1efdab1b",
+        "name": "Eufy Robovac Battery %",
+        "group": "86ecb07669a235fb",
+        "order": 1,
+        "width": "4",
+        "height": "3",
+        "gtype": "gauge-battery",
+        "gstyle": "needle",
+        "title": "battery %",
+        "units": "units",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#ea5353"
+            },
+            {
+                "from": "40",
+                "color": "#ffc800"
+            },
+            {
+                "from": "70",
+                "color": "#5cd65c"
+            }
+        ],
+        "min": 0,
+        "max": "100",
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 810,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "bd448ad1b528168f",
+        "type": "switch",
+        "z": "eb6ebf0d1efdab1b",
+        "name": "",
+        "property": "payload.command",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "battery",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "hello",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 310,
+        "y": 500,
+        "wires": [
+            [
+                "19293dae010defa2",
+                "d2928f1e9b89d4c8"
+            ],
+            [
+                "6482eb5a2048c664",
+                "366319dd3f1c7c0b"
+            ]
+        ]
+    },
+    {
+        "id": "19293dae010defa2",
+        "type": "function",
+        "z": "eb6ebf0d1efdab1b",
+        "name": "battery %",
+        "func": "return { payload: msg.payload.value };",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 480,
+        "wires": [
+            [
+                "b69e25e4903751b9"
+            ]
+        ]
+    },
+    {
+        "id": "6482eb5a2048c664",
+        "type": "function",
+        "z": "eb6ebf0d1efdab1b",
+        "name": "voltage",
+        "func": "return {\n    payload: {\n        topic: 'voltage',\n        timestamp: Date.now(),\n        value: msg.payload.value.HW.V / 1000.0\n    }\n};",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 600,
+        "wires": [
+            [
+                "b2aa821e49322dc0"
+            ]
+        ]
+    },
+    {
+        "id": "b2aa821e49322dc0",
+        "type": "ui-chart",
+        "z": "eb6ebf0d1efdab1b",
+        "group": "86ecb07669a235fb",
+        "name": "Eufy Robovac Power Graph",
+        "label": "battery health",
+        "order": 2,
+        "chartType": "line",
+        "category": "payload.topic",
+        "categoryType": "msg",
+        "xAxisLabel": "time",
+        "xAxisProperty": "timestamp",
+        "xAxisPropertyType": "property",
+        "xAxisType": "time",
+        "xAxisFormat": "",
+        "xAxisFormatType": "auto",
+        "yAxisLabel": "voltage",
+        "yAxisProperty": "value",
+        "ymin": "-5.0",
+        "ymax": "17.0",
+        "action": "append",
+        "stackSeries": false,
+        "pointShape": "circle",
+        "pointRadius": 4,
+        "showLegend": true,
+        "removeOlder": "104",
+        "removeOlderUnit": "604800",
+        "removeOlderPoints": "",
+        "colors": [
+            "#0095ff",
+            "#ff0000",
+            "#ff7f0e",
+            "#2ca02c",
+            "#a347e1",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "textColor": [
+            "#666666"
+        ],
+        "textColorDefault": true,
+        "gridColor": [
+            "#e5e5e5"
+        ],
+        "gridColorDefault": true,
+        "width": "12",
+        "height": "8",
+        "className": "",
+        "x": 820,
+        "y": 560,
+        "wires": [
+            [
+                "28a6762c3557d87a"
+            ]
+        ]
+    },
+    {
+        "id": "366319dd3f1c7c0b",
+        "type": "function",
+        "z": "eb6ebf0d1efdab1b",
+        "name": "current",
+        "func": "return {\n    payload: {\n        topic: 'current',\n        timestamp: Date.now(),\n        value: msg.payload.value.HW.I / 1000.0\n    }\n};",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 640,
+        "wires": [
+            [
+                "b2aa821e49322dc0"
+            ]
+        ]
+    },
+    {
+        "id": "d2928f1e9b89d4c8",
+        "type": "function",
+        "z": "eb6ebf0d1efdab1b",
+        "name": "battery %",
+        "func": "return {\n    payload: {\n        topic: 'battery %',\n        timestamp: Date.now(),\n        value: msg.payload.value / 100.0 * 15.0\n    }\n};",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 560,
+        "wires": [
+            [
+                "b2aa821e49322dc0"
+            ]
+        ]
+    },
+    {
+        "id": "9e1287cd0306965b",
+        "type": "command",
+        "z": "eb6ebf0d1efdab1b",
+        "config": "2c5e74835590d24a",
+        "name": "clean rooms",
+        "command": "cleanRooms",
+        "x": 390,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "fb9c693d88bcbb9e",
+        "type": "command",
+        "z": "eb6ebf0d1efdab1b",
+        "config": "2c5e74835590d24a",
         "name": "clean",
         "command": "clean",
-        "x": 590,
-        "y": 620,
+        "x": 410,
+        "y": 320,
         "wires": []
     },
     {
-        "id": "b88dcb77ebc86966",
-        "type": "in",
-        "z": "e26ab9304be2ede0",
-        "config": "8166c4736e9e6afe",
-        "name": "go home",
-        "command": "goHome",
-        "x": 600,
-        "y": 680,
-        "wires": []
-    },
-    {
-        "id": "b391bf02d3a420a7",
-        "type": "inject",
-        "z": "e26ab9304be2ede0",
+        "id": "0d64b4a2b537c5aa",
+        "type": "event",
+        "z": "eb6ebf0d1efdab1b",
+        "config": "2c5e74835590d24a",
         "name": "",
-        "props": [
-            {
-                "p": "payload"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "true",
-        "payloadType": "bool",
-        "x": 390,
-        "y": 680,
+        "output": "event",
+        "x": 110,
+        "y": 480,
         "wires": [
             [
-                "b88dcb77ebc86966"
+                "c8c481c031d288d0",
+                "bd448ad1b528168f"
             ]
         ]
     },
     {
-        "id": "8166c4736e9e6afe",
+        "id": "28a6762c3557d87a",
+        "type": "json",
+        "z": "eb6ebf0d1efdab1b",
+        "name": "",
+        "property": "payload",
+        "action": "str",
+        "pretty": false,
+        "x": 1030,
+        "y": 560,
+        "wires": [
+            [
+                "71047cc79e224ee5"
+            ]
+        ]
+    },
+    {
+        "id": "71047cc79e224ee5",
+        "type": "file",
+        "z": "eb6ebf0d1efdab1b",
+        "name": "",
+        "filename": "main-robovac.json",
+        "filenameType": "str",
+        "appendNewline": true,
+        "createDir": false,
+        "overwriteFile": "false",
+        "encoding": "none",
+        "x": 1210,
+        "y": 560,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2be0f876de4979ed",
+        "type": "inject",
+        "z": "eb6ebf0d1efdab1b",
+        "name": "",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 110,
+        "y": 720,
+        "wires": [
+            [
+                "46db56e6691da5cd"
+            ]
+        ]
+    },
+    {
+        "id": "46db56e6691da5cd",
+        "type": "file in",
+        "z": "eb6ebf0d1efdab1b",
+        "name": "",
+        "filename": "main-robovac.json",
+        "filenameType": "str",
+        "format": "lines",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 310,
+        "y": 720,
+        "wires": [
+            [
+                "0bbc91b403bd4284"
+            ]
+        ]
+    },
+    {
+        "id": "0bbc91b403bd4284",
+        "type": "json",
+        "z": "eb6ebf0d1efdab1b",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 510,
+        "y": 720,
+        "wires": [
+            [
+                "b2aa821e49322dc0"
+            ]
+        ]
+    },
+    {
+        "id": "86ecb07669a235fb",
+        "type": "ui-group",
+        "name": "Vacuum",
+        "page": "97df5425b55f5140",
+        "width": "12",
+        "height": "1",
+        "order": 1,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "2c5e74835590d24a",
         "type": "eufy-robovac-config",
         "ip": "10.0.1.69",
         "deviceId": "[YOUR DEVICE ID]",
         "localKey": "[YOUR LOCAL KEY]"
+    },
+    {
+        "id": "97df5425b55f5140",
+        "type": "ui-page",
+        "name": "Vacuum",
+        "ui": "afddb1fa69affa7c",
+        "path": "/vacuum",
+        "icon": "home",
+        "layout": "grid",
+        "theme": "94ab46f62e6190ad",
+        "order": 1,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "afddb1fa69affa7c",
+        "type": "ui-base",
+        "name": "My Dashboard",
+        "path": "/dashboard",
+        "includeClientData": true,
+        "acceptsClientConfig": [
+            "ui-notification",
+            "ui-control"
+        ],
+        "showPathInSidebar": false,
+        "showPageTitle": true,
+        "navigationStyle": "default",
+        "titleBarStyle": "default"
+    },
+    {
+        "id": "94ab46f62e6190ad",
+        "type": "ui-theme",
+        "name": "Default Theme",
+        "colors": {
+            "surface": "#000000",
+            "primary": "#0094ce",
+            "bgPage": "#000000",
+            "groupBg": "#000000",
+            "groupOutline": "#cccccc"
+        },
+        "sizes": {
+            "density": "default",
+            "pagePadding": "12px",
+            "groupGap": "12px",
+            "groupBorderRadius": "4px",
+            "widgetGap": "12px"
+        }
     }
 ]
