@@ -10,7 +10,7 @@ Run the following command in the root directory of your Node-RED install
 
 ## Configuration
 
-See https://github.com/markbajaj/eufy-device-id-python for obtaining your Eufy Robovac's device ID and local key.
+See https://github.com/gtalusan/eufy-device-id-js for obtaining your Eufy Robovac's device ID and local key.
 
 ## How to use
 
