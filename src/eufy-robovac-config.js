@@ -10,7 +10,7 @@ module.exports = (RED) => {
 
       const { ip, deviceId, localKey } = config;
       this.robovac = new RoboVac({ ip, deviceId, localKey });
-      this.robovac.on('tuya.connected', async () => {
+      this.robovac.on('tuya.connected', () => {
         this.connected = true;
       });
 
@@ -28,6 +28,10 @@ module.exports = (RED) => {
             console.error(e);
           }
         }, 2000);
+      });
+
+      this.robovac.on('error', (error) => {
+        console.error(error);
       });
 
       this.robovac.initialize();
