@@ -22,7 +22,7 @@
   "homepage": "https://github.com/gtalusan/node-red-contrib-eufy-robovac#readme",
   "description": "",
   "dependencies": {
-    "@george.talusan/eufy-robovac-js": "^0.0.9"
+    "@george.talusan/eufy-robovac-js": "^0.0.12"
   },
   "node-red" : {
     "nodes": {
